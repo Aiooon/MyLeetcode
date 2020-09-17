@@ -13,12 +13,19 @@
 
 限制：
     2 <= n <= 100000
+
+date : 9-17-2020
 """
 from typing import List
 
 
 class Solution:
     def findRepeatNumber(self, nums: List[int]) -> int:
+        """
+
+        :param nums:
+        :return:
+        """
         if nums is None:
             return -1
 
@@ -26,8 +33,6 @@ class Solution:
         for i in range(length):
             if nums[i] < 0 or nums[i] > length - 1:
                 return -1
-
-        for i in range(length):
             while nums[i] != i:
                 if nums[i] == nums[nums[i]]:
                     return nums[i]
@@ -36,7 +41,10 @@ class Solution:
         return -1
 
 
-
 s = Solution()
-nums = [1,2,3,4]
+nums = [1, 2, 3, 4, 2, 3]
+nums_ = [1, 2, 3, 0]
+nums__ = [2, 3, 1, 0, 2, 5, 3]
 print(s.findRepeatNumber(nums))
+print(s.findRepeatNumber(nums_))
+print(s.findRepeatNumber(nums__))
