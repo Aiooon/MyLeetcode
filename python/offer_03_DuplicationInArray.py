@@ -41,13 +41,12 @@ class Solution:
         return -1
 
     # 原地交换标答
-    def findRepeatNumber(self, nums: [int]) -> int:
+    def findRepeatNumber_ans(self, nums: [int]) -> int:
         dic = set()
         for num in nums:
             if num in dic: return num
             dic.add(num)
         return -1
-
 
 
 s = Solution()
