@@ -26,9 +26,6 @@ class Solution:
         :param nums:
         :return:
         """
-        if nums is None:
-            return -1
-
         length = len(nums)
         for i in range(length):
             if nums[i] < 0 or nums[i] > length - 1:
@@ -40,13 +37,21 @@ class Solution:
 
         return -1
 
+
     # 原地交换标答
     def findRepeatNumber_ans(self, nums: [int]) -> int:
-        dic = set()
-        for num in nums:
-            if num in dic: return num
-            dic.add(num)
-        return -1
+        if nums is None:
+            return -1
+
+        for i in range(len(nums)):
+            if nums[i] == i:
+                i += 1
+                continue
+            if nums[i] == nums[nums[i]]:
+                return nums[i]
+            nums[i], nums[nums[i]] = nums[nums[i]], nums[i]
+            return -1
+
 
 
 s = Solution()
@@ -56,3 +61,4 @@ nums__ = [2, 3, 1, 0, 2, 5, 3]
 print(s.findRepeatNumber(nums))
 print(s.findRepeatNumber(nums_))
 print(s.findRepeatNumber(nums__))
+print(s.findRepeatNumber_ans(nums__))
