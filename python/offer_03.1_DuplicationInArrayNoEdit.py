@@ -27,6 +27,12 @@ def count(nums, length, start, end):
     return count
 
 def getDuplication(nums, length):
+    """
+
+    :param nums:
+    :param length:
+    :return:
+    """
     if nums is None:
         return 0
 
