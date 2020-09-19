@@ -94,7 +94,42 @@ def exist(board: List[List[str]], word: str) -> bool:
                 return True
     return False
 
-board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]]
-words = ["ABCCED", "SEE", "ABCB"]
-for word in words:
-    print(exist(board, word))
+# board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]]
+# words = ["ABCCED", "SEE", "ABCB"]
+# for word in words:
+#     print(exist(board, word))
+
+
+def findNumberIn2DArray(matrix: List[List[int]], target: int) -> bool:
+    # if matrix is None:     错误！
+    # None 表示没有值, "",[],{}都不等于None
+    # not 是做逻辑判断，而python中None, False, "", 0, [], {}, () 都相当于False
+    if not matrix:
+        return False
+    rows, cols = len(matrix), len(matrix[0])
+    if rows < 0 or rows > 1000:
+        return False
+    if cols < 0 or cols > 1000:
+        return False
+
+    row, col = 0, cols - 1
+    while row < rows and col >= 0:
+        if matrix[row][col] == target:
+            return True
+        elif matrix[row][col] > target:
+            col -= 1
+        else:
+            row += 1
+    return False
+
+
+matrix = [
+  [1,   4,  7, 11, 15],
+  [2,   5,  8, 12, 19],
+  [3,   6,  9, 16, 22],
+  [10, 13, 14, 17, 24],
+  [18, 21, 23, 26, 30]]
+target = 100
+target1 = 14
+print(findNumberIn2DArray(matrix, target))
+print(findNumberIn2DArray(matrix, target1))
