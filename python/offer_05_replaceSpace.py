@@ -36,7 +36,10 @@ class Solution:
         #         res.append(c)
         # return "".join(res)
 
+        # 抖机灵 1
         # return s.replace(" ","%20")
+        # 抖机灵 2
+        # return "".join("%20" if c == " " else c for c in s)
 
 
 
