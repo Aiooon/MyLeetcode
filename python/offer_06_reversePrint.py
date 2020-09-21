@@ -20,7 +20,7 @@ date:9-5-2020
 #         self.next = None
 from typing import List
 
-from singlyLinkedList import ListNode
+from python.singlyLinkedList import ListNode
 
 
 def reversePrint(head: ListNode) -> List[int]:
@@ -29,6 +29,7 @@ def reversePrint(head: ListNode) -> List[int]:
         stack.append(head.val)
         head = head.next
     return stack[::-1]
+
 
 def reversePrint_recursive(head: ListNode) -> List[int]:
     return reversePrint_recursive(head.next) + [head.val] if head else []
@@ -43,3 +44,4 @@ A.next = B
 B.next = C
 C.next = D
 print(reversePrint(A))
+
