@@ -1,135 +1,54 @@
-class Solution:
-    def solveNQueens(self, n: int):
-
-        def generateBoard():
-            board = list()
-            for i in range(n):
-                row[queens[i]] = "Q"
-                board.append("".join(row))
-                row[queens[i]] = "."
-            return board
+"""
+date : 9-22-2020
+test : build binary tree
+"""
+from python.binaryTree import TreeNode
 
 
-        def backtrack(row: int):
-            if row == n:
-                board = generateBoard()
-                solutions.append(board)
-            else:
-                for i in range(n):
-                    if i in columns or row - i in diagonal1 or row + i in diagonal2:
-                        continue
-                    queens[row] = i
-                    columns.add(i)
-                    diagonal1.add(row - i)
-                    diagonal2.add(row + i)
-                    backtrack(row + 1)
-                    columns.remove(i)
-                    diagonal1.remove(row - i)
-                    diagonal2.remove(row + i)
+class CodeforTest:
+    def buildTree(self, preorderList, inorderList) -> TreeNode:
+        """
 
-        solutions = list()
-        queens = [-1] * n
-        row = ["."] * n
-        columns = set()
-        diagonal1 = set()
-        diagonal2 = set()
-        backtrack(0)
-        return solutions
+        :param preorderList: List[int]
+        :param inorderList:  List[int]
+        :return: root : TreeNode
+        """
+        self.preorder = preorderList
+        self.inorderDict = {}
+        for i in range(len(inorderList)):
+            self.inorderDict[inorderList[i]] = i   # 用字典记录每个节点在中序遍历中的位置
+        return self.recurProcess(0, 0, len(inorderList) - 1)
+
+    def recurProcess(self, pre_root, in_left, in_right):
+        if in_left > in_right:
+            return
+        root = TreeNode(self.preorder[pre_root])  # 建立当前子树的根节点
+        i = self.inorderDict[root.val]
+        root.left = self.recurProcess(pre_root + 1, in_left, i - 1)
+        root.right = self.recurProcess(i - in_left + pre_root + 1, i + 1, in_right)
+        return root
 
 
-s = Solution()
-
-#print(s.solveNQueens(4))
-
-# res = []
-# path = [1, 2, ['a', 'b']]
-# res.append(path)
-# print("path: " , path)
-# print("res: " , res)
-# print("-------------------")
-# path.append(3)
-# print("path: " , path)
-# print("res: " , res)
-# print("-------------------")
-# path.pop()
-# path[2].append('b')
-# print("path: " , path)
-# print("res: " , res)
-# print("-------------------")
-# path[2].pop()
-# print("path: " , path)
-# print("res: " , res)
-# print("-------------------")
+sol = CodeforTest()
 
 
-from typing import List
+preorder = [3, 9, 20, 15, 7]
+inorder = [9, 3, 15, 20, 7]
+
+preorder_ = [3, 9, 8, 5, 10, 20, 15, 7]
+inorder_ = [5, 8, 10, 9, 3, 15, 20, 7]
+
+preorder__ = [1, 2, 4, 8, 9, 5, 10, 11, 3, 6, 12, 7, 13]
+inorder__ = [8, 4, 9, 2, 10, 5, 11, 1, 6, 12, 3, 13, 7]
 
 
-def exist(board: List[List[str]], word: str) -> bool:
-    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+root = sol.buildTree(preorder, inorder)
+print(root.printTree(root))
 
-    def check(i, j, k):
-        if board[i][j] != word[k]:
-            return False
-        if k == len(word) - 1:
-            return True
+root_ = sol.buildTree(preorder_, inorder_)
+print(root_.printTree(root_))
 
-        res = False
-        visited.add((i, j))
-        for diret_i, direct_j in directions:
-            next_i, next_j = i + diret_i, j + direct_j
-            if 0 <= next_i < height and 0 <= next_j < width:
-                if (next_i, next_j) not in visited:
-                    if check(next_i, next_j, k + 1):
-                        res = True
-                        break
-        visited.remove((i, j))
-        return res
-
-    visited = set()
-    height, width = len(board), len(board[0])
-    for i in range(height):
-        for j in range(width):
-            if check(i, j, 0):
-                return True
-    return False
-
-# board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]]
-# words = ["ABCCED", "SEE", "ABCB"]
-# for word in words:
-#     print(exist(board, word))
+root__ = sol.buildTree(preorder__, inorder__)
+print(root__.printTree(root__))
 
 
-def findNumberIn2DArray(matrix: List[List[int]], target: int) -> bool:
-    # if matrix is None:     错误！
-    # None 表示没有值, "",[],{}都不等于None
-    # not 是做逻辑判断，而python中None, False, "", 0, [], {}, () 都相当于False
-    if not matrix:
-        return False
-    rows, cols = len(matrix), len(matrix[0])
-    if rows < 0 or rows > 1000:
-        return False
-    if cols < 0 or cols > 1000:
-        return False
-
-    row, col = 0, cols - 1
-    while row < rows and col >= 0:
-        if matrix[row][col] == target:
-            return True
-        elif matrix[row][col] > target:
-            col -= 1
-        else:
-            row += 1
-    return False
-
-
-matrix = [
-  [1,   4,  7, 11, 15],
-  [2,   5,  8, 12, 19],
-  [3,   6,  9, 16, 22],
-  [10, 13, 14, 17, 24],
-  [18, 21, 23, 26, 30]]
-target = 100
-target1 = 14
-print(findNumberIn2DArray(matrix, target))
-print(findNumberIn2DArray(matrix, target1))
