@@ -24,6 +24,110 @@ class TreeNode:
                 return root  ###这里的return很重要
         return root
 
+    # print Tree in layer order
+    def printTreebyLayer(self, root):
+        A = []
+        result = []
+        if not root:
+            return result
+        A.append(root)
+        while A:
+            current_root = A.pop(0)
+            result.append(current_root.val)
+            if current_root.left:
+                A.append(current_root.left)
+            if current_root.right:
+                A.append(current_root.right)
+        return result
+
+    def listcreattree(self, root, llist, i):  # 用列表递归创建二叉树，
+        # 它其实创建过程也是从根开始a开始，创左子树b，再创b的左子树，如果b的左子树为空，返回none。
+        # 再接着创建b的右子树，
+        if i < len(llist):
+            if llist[i] == '#':
+                return None  # 这里的return很重要
+            else:
+                root = TreeNode(llist[i])
+                # 往左递推
+                root.left = self.listcreattree(
+                    root.left, llist, 2 * i + 1)  # 从根开始一直到最左，直至为空，
+                # 往右回溯
+                root.right = self.listcreattree(
+                    root.right, llist, 2 * i + 2)  # 再返回上一个根，回溯右，
+                # 再返回根'
+                return root  # 这里的return很重要
+        return root
+
+    # 打印为树状图
+    def toTree4(self, t):
+        n = len(t) - 1
+        for i in range(1, n - 1):
+            for j in range(2 * i):
+                if t[i][j] == '.':
+                    t[i + 1].insert(j + 1, '.')
+                    t[i + 1].insert(j + 1, '.')
+        result = []
+        result.append('       {}       '.format(t[0][0]))
+        result.append('    /     \\    ')
+        result.append('   {}       {}   '.format(t[1][0], t[1][1]))
+        result.append('  / \\     / \\  ')
+        result.append(' {}   {}   {}   {} '.format(*t[2]))
+        result.append('/ \\ / \\ / \\ / \\')
+        result.append(' '.join([str(i) for i in t[3]]))
+        for i in result[:2 * n - 1]:
+            print(i)
+
+    # 深度小于等于3
+    def toTree3(self, t):
+        n = len(t) - 1
+        for i in range(1, n - 1):
+            for j in range(2 * i):
+                if t[i][j] == '.':
+                    t[i + 1].insert(j + 1, '.')
+                    t[i + 1].insert(j + 1, '.')
+        result = []
+        result.append('   {}   '.format(t[0][0]))
+        result.append('  / \\  ')
+        result.append(' {}   {} '.format(t[1][0], t[1][1]))
+        result.append('/ \\ / \\')
+        result.append('{} {} {} {}'.format(*t[2]))
+        for i in result[:2 * n - 1]:
+            print(i)
+
+    # 二叉树按层序转换为列表
+    def treeArray(self, pRoot):
+        if not pRoot:
+            return []
+        resultList = []
+        curLayer = [pRoot]
+        while curLayer:
+            curList = []
+            nextLayer = []
+            for node in curLayer:
+                if node == '.':
+                    curList.append('.')
+                else:
+                    curList.append(node.val)
+                    if node.left:
+                        nextLayer.append(node.left)
+                    else:
+                        nextLayer.append('.')
+                    if node.right:
+                        nextLayer.append(node.right)
+                    else:
+                        nextLayer.append('.')
+            resultList.append(curList)
+            curLayer = nextLayer
+        return resultList
+
+    # 将上两个函数合并
+    def printTree(self, tree):
+        a = self.treeArray(tree)
+        if len(a) < 5:
+            self.toTree3(a)
+        else:
+            self.toTree4(a)
+
     # print binary tree with tree structure (not finish)
     def function(self, root):
         A = []
@@ -165,8 +269,9 @@ c.right = g
  layerorder : 1234567
 """
 
+# print(a.printTree(a))
 
-print("preorder Traversal: ", a.preorderTraversal(a))
-print("inorder Traversal: ", a.inorderTraversal(a))
-print("postorder Traversal: ", a.postorderTraversal(a))
-print("layerorder Traversal: ", a.layerorderTraversal(a))
+# print("preorder Traversal: ", a.preorderTraversal(a))
+# print("inorder Traversal: ", a.inorderTraversal(a))
+# print("postorder Traversal: ", a.postorderTraversal(a))
+# print("layerorder Traversal: ", a.layerorderTraversal(a))
