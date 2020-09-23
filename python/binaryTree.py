@@ -4,6 +4,7 @@ class TreeNode:
         self.val = x
         self.left = None
         self.right = None
+        self.parent = None
 
     # create tree with list (not finish)
     def createTreeWithList(self, root, llist, i):
