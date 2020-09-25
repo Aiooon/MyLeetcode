@@ -238,25 +238,44 @@ class TreeNode:
                 queue.append(root.right)
         return seq
 
+    def exampleTree(self):
+        a = TreeNode(1)
+        b = TreeNode(2)
+        c = TreeNode(3)
+        d = TreeNode(4)
+        e = TreeNode(5)
+        f = TreeNode(6)
+        g = TreeNode(7)
+
+        a.left = b
+        a.right = c
+        b.left = d
+        b.right = e
+        c.left = f
+        c.right = g
+
+        return a
+
+
 # llist = [1, 2, 3, 4, 5]
 # A = TreeNode(1)
 # A.createTreeWithList(None, llist, 0)
 # print(A.function(A))
 
-a = TreeNode(1)
-b = TreeNode(2)
-c = TreeNode(3)
-d = TreeNode(4)
-e = TreeNode(5)
-f = TreeNode(6)
-g = TreeNode(7)
-
-a.left = b
-a.right = c
-b.left = d
-b.right = e
-c.left = f
-c.right = g
+# a = TreeNode(1)
+# b = TreeNode(2)
+# c = TreeNode(3)
+# d = TreeNode(4)
+# e = TreeNode(5)
+# f = TreeNode(6)
+# g = TreeNode(7)
+#
+# a.left = b
+# a.right = c
+# b.left = d
+# b.right = e
+# c.left = f
+# c.right = g
 
 """
       1
