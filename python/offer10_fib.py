@@ -32,7 +32,7 @@ class Solution:
         else:
             return (self.fib(n - 1) + self.fib(n - 2)) % 1000000007
 
-    # GOD CODE!
+    # NICE CODE!
     def fib_(self, n: int) -> int:
         a, b = 0, 1
         for _ in range(n):

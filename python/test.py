@@ -42,13 +42,29 @@ preorder__ = [1, 2, 4, 8, 9, 5, 10, 11, 3, 6, 12, 7, 13]
 inorder__ = [8, 4, 9, 2, 10, 5, 11, 1, 6, 12, 3, 13, 7]
 
 
-root = sol.buildTree(preorder, inorder)
-print(root.printTree(root))
+# root = sol.buildTree(preorder, inorder)
+# print(root.printTree(root))
+#
+# root_ = sol.buildTree(preorder_, inorder_)
+# print(root_.printTree(root_))
+#
+# root__ = sol.buildTree(preorder__, inorder__)
+# print(root__.printTree(root__))
 
-root_ = sol.buildTree(preorder_, inorder_)
-print(root_.printTree(root_))
 
-root__ = sol.buildTree(preorder__, inorder__)
-print(root__.printTree(root__))
+# 位运算
+print(0o10)     # 八进制
+print(0x10)     # 十六进制
+print(0b10)     # 二进制
+
+x = 0b1010      # 1010  10
+y = 1           # 0001   1
+print("x = {}, y = {}".format(x, y))
+print("x >> y =", x >> y)   # x = 0101      5
+print("x << y =", x << y)   # x = 10100     20
+print("x & y =", x & y)     # 0000  且操作，返回结果的每一位是 x 和 y 中对应位做 and 运算的结果，只有 1 and 1 = 1，其他情况位0
+print("x | y =", x | y)     # 1011  或操作，返回结果的每一位是 x 和 y 中对应位做 or 运算的结果，只有 0 or 0 = 0，其他情况位1
+print("~x =", ~x)           # 10101  反转操作，对 x 求的每一位求补，只需记住结果是 -x - 1
+print("x ^ y =", x ^ y)     # 1011  或非运算，如果 y 对应位是0，那么结果位取 x 的对应位，如果 y 对应位是1，取 x 对应位的补
 
 
