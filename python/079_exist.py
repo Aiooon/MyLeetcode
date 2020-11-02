@@ -60,7 +60,9 @@ def exist(board: List[List[str]], word: str) -> bool:
     return False
 
 
-board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]]
+board = [["A", "B", "C", "E"],
+         ["S", "F", "C", "S"],
+         ["A", "D", "E", "E"]]
 words = ["ABCCED", "SEE", "ABCB"]
 for word in words:
     print(exist(board, word))
