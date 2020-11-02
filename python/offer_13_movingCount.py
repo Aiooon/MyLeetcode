@@ -39,7 +39,7 @@ class Solution:
 
     def movingCountCore(self, rows, cols, row, col, k, visited):
         count = 0
-        directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+        directions = [(0, 1), (1, 0)]   # 根据可达解的结构，易推出机器人可 仅通过向右和向下移动，访问所有可达解
 
         if self.check(rows, cols, row, col, k, visited):
             count += 1
