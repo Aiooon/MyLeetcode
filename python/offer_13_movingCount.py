@@ -63,13 +63,34 @@ class Solution:
         return res
 
 
+# another solution
+class Sol:
+    def sums(self, x: int):
+        sum = 0
+        while x != 0:
+            sum += x % 10
+            x = x // 10
+        return sum
+
+    def movingCount(self, m, n, k):
+        visited = []
+        return self.dfs(0, 0, m, n, k, visited)
+
+    def dfs(self, x, y, m, n, k, visited):
+        if x >= m or y >= n or \
+                self.sums(x) + self.sums(y) > k or \
+                (x, y) in visited:
+            return 0
+        visited.append((x, y))
+        return 1 + self.dfs(x + 1, y, m, n, k, visited) + self.dfs(x, y + 1, m, n, k, visited)
+
 """
 0 0
 0 0
 """
 
-m = 2
-n = 3
-k = 1
-print(Solution().movingCount(m, n, k))
+m = 20
+n = 20
+for k in range(6, 20):
+    print(Solution().movingCount(m, n, k))
 
