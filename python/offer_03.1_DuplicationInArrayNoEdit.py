@@ -8,6 +8,17 @@
 date ： 9-17-2020
 """
 
+
+def findDuplication(nums, length):
+    box = set()
+    repeat = None
+    for i in range(length):
+        if not box.add(nums[i]):
+            repeat = nums[i]
+            break
+    return repeat
+
+
 def count(nums, length, start, end):
     """
 
@@ -25,6 +36,7 @@ def count(nums, length, start, end):
         if start <= nums[i] <= end:
             count += 1
     return count
+
 
 def getDuplication(nums, length):
     """
@@ -57,3 +69,4 @@ nums = [2, 3, 5, 4, 3, 2, 2, 6, 7]
 length = 9
 print(getDuplication(nums, length))
 
+print(findDuplication(nums, length))
