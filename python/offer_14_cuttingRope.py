@@ -44,6 +44,7 @@ class Solution:
                 store[i] = max
         return store[n]
 
+    # 贪婪算法
     def _cuttingRope(self, n: int) -> int:
         if n <= 3:
             return n - 1
@@ -57,4 +58,5 @@ class Solution:
 
 print(Solution().cuttingRope(10))
 
+print(1 // 2)
 

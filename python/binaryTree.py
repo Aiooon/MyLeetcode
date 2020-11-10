@@ -147,11 +147,6 @@ class TreeNode:
 
     # Non-recursive preorder traversal
     def preorderTraversal(self, root):
-        """
-
-        :param root:
-        :return:
-        """
         if root is None:
             return []
 
@@ -169,11 +164,6 @@ class TreeNode:
 
     # Non-recursive inorder traversal
     def inorderTraversal(self, root):
-        """
-
-        :param root:
-        :return:
-        """
         if root is None:
             return []
 
@@ -192,11 +182,6 @@ class TreeNode:
     # Non-recursive postorder traversal
     # 把先序顺序中的 ‘根左右’ 转换为 ‘根右左’，然后反过来就变成了‘左右根’。
     def postorderTraversal(self, root):
-        """
-
-        :param root:
-        :return:
-        """
         if root is None:
             return []
 
@@ -288,8 +273,9 @@ class TreeNode:
  postorder  : 4526731
  layerorder : 1234567
 """
-
-# print(a.printTree(a))
+# a = TreeNode(0)
+# a = a.exampleTree()
+# a.printTree(a)
 
 # print("preorder Traversal: ", a.preorderTraversal(a))
 # print("inorder Traversal: ", a.inorderTraversal(a))
