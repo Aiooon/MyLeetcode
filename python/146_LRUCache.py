@@ -49,8 +49,25 @@ class DoubleLinkedListNode:
         self.next = None
         self.prev = None
 
+
 # 定义LRU缓存结构
 class LRUCache:
+    """
+    思路：
+
+    使用一个有序双向链表记录访问的结点，每个结点存储 key、value 两个信息及前驱、后继结点，越靠近链表尾部的结点表示越早访问。
+    同时用一个 hash 表（字典）记录已在链表中的结点，存储结构为 {key: node}，即根据 key 值指向链表中对应的结点。
+    这样就可以实现在 O(1) 的时间复杂度内查找。
+
+    1. int get(int key):
+    如果关键字 key 存在于 hash 表中，根据 {key: node} 找到链表中对应的结点，
+    返回 node.value，并将该节点移动到链表表头。若不存在则返回-1.
+
+    2. void put(int key, int value):
+    如果关键字 key 存在于 hash 表中，根据 {key: node} 找到链表中对应的结点，更新其值为 value，并将其移动到链表表头。
+    若 hash 表中不存在该 key， 则创建新的结点 node 存储 key-value，将 key-node 添加到 hash 表中，
+    并将 node 添加到链表表头。若此时链表的长度超过了预先设定的最大缓存容量，则删除链表表尾结点。
+    """
 
     def __init__(self, capacity: int):
         self.cache = dict()
@@ -86,20 +103,24 @@ class LRUCache:
             self.moveToHead(node)
             node.val = value
 
+    # 将结点添加到链表表头
     def addToHead(self, node):
         node.next = self.head.next
         node.prev = self.head
         self.head.next.prev = node
         self.head.next = node
 
+    # 删除结点
     def removeNode(self, node):
         node.next.prev = node.prev
         node.prev.next = node.next
 
+    # 移到表头由两步完成：删除该节点、将该结点添加到表头
     def moveToHead(self, node):
         self.removeNode(node)
         self.addToHead(node)
 
+    # 删除表尾结点
     def removeTail(self):
         node = self.tail.prev
         self.removeNode(node)
