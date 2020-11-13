@@ -22,6 +22,7 @@
 date : 11-13-2020
 """
 
+
 class Solution:
     def isPalindrome(self, x: int) -> bool:
         s = str(x)
