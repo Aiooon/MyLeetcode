@@ -51,7 +51,7 @@ class Solution:
 
     def findMid(self, head):
         front, back = head, head
-        while back.next and back.next.next:
+        while back and back.next:
             front = front.next
             back = back.next.next
         return front

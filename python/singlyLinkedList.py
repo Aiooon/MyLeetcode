@@ -53,3 +53,16 @@ class ListNode:
             reverse_head = head
             head = next
         return reverse_head
+
+    # Length of Linked List
+    def length(self, head):
+        l = 0
+        while head:
+            l += 1
+            head = head.next
+        return l
+
+# nums = [1, 2, 3, 4, 5]
+# head = ListNode().buildList(nums)
+# head.printList(head)
+# print(head.length)
