@@ -33,8 +33,8 @@ class Solution:
         return head.next
 
 
-nums1 = [1, 3]
-nums2 = [2]
+nums1 = [1, 3, 5]
+nums2 = [2, 3, 4, 6]
 l1 = ListNode().buildList(nums1)
 l2 = ListNode().buildList(nums2)
 l1.printList(l1)
