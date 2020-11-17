@@ -3,9 +3,10 @@ from typing import List
 
 
 class ListNode:
-    def __init__(self, x=0):
-        self.val = x
-        self.next = None
+
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
 
     # Build Singly Linked List with int List
     def buildList(self, nums: List):
