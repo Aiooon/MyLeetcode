@@ -72,5 +72,4 @@ while tail.next:
 pos = head.next
 tail.next = pos
 print(tail.val, tail.next.val)
-
 print(Solution().hasCycle(head))
