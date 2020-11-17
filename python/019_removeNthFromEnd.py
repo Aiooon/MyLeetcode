@@ -55,7 +55,6 @@ class Solution:
             h.next = None
 
 
-
 nums = [1, 2, 3, 4, 5]
 head = ListNode().buildList(nums)
 head.printList(head)
