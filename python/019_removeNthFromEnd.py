@@ -25,39 +25,64 @@ from python.singlyLinkedList import ListNode
 
 class Solution:
     def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
-        l = self.length(head)
-        if l == 1 and n == 1:
-            return None
-        i = 0
-        h = head
-        while i < l - n:
-            h = h.next
-            i += 1
-        self.removeNode(h, head)
-        return head
+        """
+        思路：
+        根据链表长度 l，找到第 l-n 个结点，删除下一个结点
+        时间复杂度 O(n)
+        空间复杂度 O(1)
 
-    def length(self, head):
-        l = 0
-        while head:
-            l += 1
-            head = head.next
-        return l
+        :param head:
+        :param n:
+        :return:
+        """
+        def length(head):
+            l = 0
+            while head:
+                l += 1
+                head = head.next
+            return l
 
-    def removeNode(self, node, head):
-        if node.next:
-            node.val = node.next.val
-            node.next = node.next.next
-        # 删除尾结点
-        else:
-            h = head
-            while h.next.next:
-                h = h.next
-            h.next = None
+        l = length(head)
+        dummyhead = ListNode(0, head)
+        cur = dummyhead
+        for i in range(l-n):
+            cur = cur.next
+        cur.next = cur.next.next
+        return dummyhead.next
+
+    def removeNthFromEndOnce(self, head: ListNode, n: int) -> ListNode:
+        """
+        思路：只扫描一次的方法
+        用前后两个指针，后面的指针比前面的指针超前 n 个结点。同时开始遍历，当后面的指针到达表尾（空）时，
+        前一个结点指向的就是倒数第 n 个结点。
+        为使删除结点更方便，引入 dummy，sec指向倒数第 n 个结点的前一个结点
+        1 -> 2 -> 3 -> 4 -> 5 ->
+                  ↑              ↑
+                 sec            fst
+        初始时：
+         dummy -> 1 -> 2 -> 3 -> 4 -> 5 ->
+           ↑                ↑
+          sec              fst
+
+        :param head:
+        :param n:
+        :return:
+        """
+        dummyhead = ListNode(0, head)
+        sec = dummyhead
+        fst = head
+        for i in range(n):
+            fst = fst.next
+        while fst:
+            sec = sec.next
+            fst = fst.next
+        sec.next = sec.next.next
+        return dummyhead.next
 
 
 nums = [1, 2, 3, 4, 5]
 head = ListNode().buildList(nums)
 head.printList(head)
-Solution().removeNthFromEnd(head, 2)
+Solution().removeNthFromEndOnce(head, 2)
 head.printList(head)
 
