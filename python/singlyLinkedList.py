@@ -67,14 +67,12 @@ class ListNode:
         :param head: head node of the Linked List
         :return: No return
         """
-        res = ""
-        while head is not None:
-            if head.next is not None:
-                res = res + str(head.val) + " -> "
-            else:
-                res = res + str(head.val)
-            head = head.next
-        print(res)
+        nums = []
+        pos = head
+        while pos:
+            nums.append(pos.val)
+            pos = pos.next
+        print(" -> ".join(str(num) for num in nums))
 
     # Reverse Linked List
     def reverseList(self, head):
@@ -103,4 +101,4 @@ class ListNode:
 nums = [1, 2, 3, 4, 5]
 head = ListNode().buildList(nums)
 head.printList(head)
-print(head.length)
+print(head.length(head))
