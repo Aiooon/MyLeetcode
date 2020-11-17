@@ -3,10 +3,47 @@ from typing import List
 
 
 class ListNode:
-
-    def __init__(self, val=0, next=None):
+    """单链表结构的 Node节点"""
+    def __init__(self, val=0, next_node=None):
+        """
+        Node节点的初始化方法
+        :param val: 存储的数据
+        :param next_node: 下一个Node节点的引用地址
+        """
         self.val = val
-        self.next = next
+        self.next = next_node
+
+    # @property
+    # def val(self):
+    #     """
+    #     Node节点存储数据的获取.
+    #     返回: 当前Node节点存储的数据
+    #     """
+    #     return self.val
+    #
+    # @val.setter
+    # def val(self, val):
+    #     """Node节点存储数据的设置方法.
+    #     参数:
+    #         data:新的存储数据
+    #     """
+    #     self.val = val
+    #
+    # @property
+    # def next_node(self):
+    #     """获取Node节点的next指针值.
+    #     返回:
+    #         next指针数据
+    #     """
+    #     return self.next
+    #
+    # @next_node.setter
+    # def next_node(self, next_node):
+    #     """Node节点next指针的修改方法.
+    #     参数:
+    #         next:新的下一个Node节点的引用
+    #     """
+    #     self.next = next_node
 
     # Build Singly Linked List with int List
     def buildList(self, nums: List):
@@ -15,7 +52,6 @@ class ListNode:
         :param nums: input int list to build Singly Linked List
         :return: head of the built Singly Linked List
         """
-
         head = ListNode(0)
         head_point = head
         for i in range(len(nums)):
@@ -63,7 +99,8 @@ class ListNode:
             head = head.next
         return l
 
-# nums = [1, 2, 3, 4, 5]
-# head = ListNode().buildList(nums)
-# head.printList(head)
-# print(head.length)
+
+nums = [1, 2, 3, 4, 5]
+head = ListNode().buildList(nums)
+head.printList(head)
+print(head.length)
