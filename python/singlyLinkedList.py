@@ -61,18 +61,27 @@ class ListNode:
         return head_point.next
 
     # Format printout linked list
-    def printList(self, head):
-        """
+    # def printList(self, head):
+    #     """
+    #
+    #     :param head: head node of the Linked List
+    #     :return: No return
+    #     """
+    #     nums = []
+    #     pos = head
+    #     while pos:
+    #         nums.append(pos.val)
+    #         pos = pos.next
+    #     print(" -> ".join(str(num) for num in nums))
 
-        :param head: head node of the Linked List
-        :return: No return
-        """
+    # 打印链表
+    def __repr__(self) -> str:
         nums = []
         pos = head
         while pos:
             nums.append(pos.val)
             pos = pos.next
-        print(" -> ".join(str(num) for num in nums))
+        return " -> ".join(str(num) for num in nums)
 
     # Reverse Linked List
     def reverseList(self, head):
@@ -100,5 +109,5 @@ class ListNode:
 
 nums = [1, 2, 3, 4, 5]
 head = ListNode().buildList(nums)
-head.printList(head)
+print(head)
 print(head.length(head))
