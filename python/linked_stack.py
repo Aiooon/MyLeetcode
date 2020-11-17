@@ -1,8 +1,6 @@
 """
     Stack based upon linked list
     基于链表实现的栈
-
-    Author: Wenru
 """
 
 from typing import Optional
