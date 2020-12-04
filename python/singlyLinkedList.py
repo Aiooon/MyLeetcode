@@ -1,4 +1,10 @@
 # Definition for singly-linked list.
+"""
+需要修改：
+新建 SinglyLinkedList 类与结点区分开，并实现内部方法
+
+"""
+
 from typing import List
 
 
@@ -107,7 +113,7 @@ class ListNode:
         return l
 
 
-nums = [1, 2, 3, 4, 5]
-head = ListNode().buildList(nums)
-print(head)
-print(head.length(head))
+# nums = [1, 2, 3, 4, 5]
+# head = ListNode().buildList(nums)
+# print(head)
+# print(head.length(head))
