@@ -7,9 +7,9 @@ import time
 
 
 def QuickSort(array):
-    if array is None or array.__len__() < 2:
+    if array is None or len(array) < 2:
         return None
-    quickSort(array, 0, array.__len__() - 1)
+    quickSort(array, 0, len(array) - 1)
 
 
 def quickSort(array, left, right):

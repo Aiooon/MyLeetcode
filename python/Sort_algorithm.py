@@ -80,6 +80,7 @@ class Sort:
         tmp.extend(nums[start:end + 1])
         nums[left:right + 1] = tmp
 
+    # 快速排序
     def quick_sort(self, nums: List[int]):
         if len(nums) <= 1:
             return
