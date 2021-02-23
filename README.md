@@ -1,2 +1,3 @@
 # MyLeetcode
-There is NOTHING here.
+
+My leetcode record and code.
