@@ -24,6 +24,6 @@ class Solution:
             if i > furthest:
                 return False
             furthest = max(furthest, i + step)
-        return True
+        return True 
 # @lc code=end
 
