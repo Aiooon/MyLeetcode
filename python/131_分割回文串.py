@@ -111,6 +111,6 @@ class Solution:
 
 
 
-s = 'aab'
+s = "ababababababababababababcbabababababababababababa"     # 超时
 print(Solution().partition(s))
 print(Solution().better_partition(s))
