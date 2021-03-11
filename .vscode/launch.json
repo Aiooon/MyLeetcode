@@ -9,7 +9,7 @@
             "request": "launch",
             "name": "Launch Chrome against localhost",
             // "url": "http://localhost:8080",
-            "program": "${workspaceFolder}/javascript/227_基本计算器 II.js"
+            "program": "${workspaceFolder}/javascript/051_N皇后.js"
         }
     ]
 }
