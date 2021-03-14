@@ -7,6 +7,15 @@ function TreeNode(val) {
 }
 
 
+/* shift:从集合中把第一个元素删除，并返回这个元素的值。
+
+unshift: 在集合开头添加一个或更多元素，并返回新的长度
+
+push:在集合中添加元素，并返回新的长度
+
+pop:从集合中把最后一个元素删除，并返回这个元素的值。 */
+
+
 /**
  * Encodes a tree to a single string.
  *

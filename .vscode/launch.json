@@ -5,11 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Python: 当前文件",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
             "type": "node",
             "request": "launch",
             "name": "Launch Chrome against localhost",
             // "url": "http://localhost:8080",
-            "program": "${workspaceFolder}/javascript/051_N皇后.js"
+            "program": "${workspaceFolder}/javascript/297_二叉树的序列化与反序列化.js"
         }
     ]
 }
