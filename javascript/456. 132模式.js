@@ -54,5 +54,5 @@ var find132pattern = function (nums) {
 };
 
 let nums = [2, 1, 0, 3, 4, 1, 2];
-console.log(nums[nums.length - 1])
-console.log(find132pattern(nums));
+// console.log(find132pattern(nums));
+
