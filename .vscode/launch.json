@@ -16,7 +16,7 @@
             "request": "launch",
             "name": "Launch Chrome against localhost",
             // "url": "http://localhost:8080",
-            "program": "${workspaceFolder}/javascript/456. 132模式.js"
+            "program": "${workspaceFolder}/javascript/090. 子集 II.js"
         }
     ]
 }
