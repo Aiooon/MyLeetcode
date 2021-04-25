@@ -37,8 +37,8 @@ class Solution:
             i, j = 0, res
             while i < j:
                 m = (i + j) // 2
-                if tails[m] < num:
-                    i = m + 1  # 如果要求非严格递增，将此行 '<' 改为 '<=' 即可。
+                if tails[m] < num:  # 如果要求非严格递增，将此行 '<' 改为 '<=' 即可。
+                    i = m + 1  
                 else:
                     j = m
             tails[i] = num
