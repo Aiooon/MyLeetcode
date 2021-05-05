@@ -21,8 +21,8 @@
 
 提示：
 
-1 <= nums.length <= 2 * 104
-1 <= nums[i] <= 104
+1 <= nums.length <= 2 * 10^4
+1 <= nums[i] <= 10^4
 
 date: 2021年5月5日
  */
