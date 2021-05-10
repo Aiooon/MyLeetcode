@@ -17,7 +17,7 @@
             "request": "launch",
             "name": "Launch Chrome against localhost",
             // "url": "http://localhost:8080",
-            "program": "${workspaceFolder}/javascript/007. 整数反转.js"
+            "program": "${workspaceFolder}/javascript/周赛240_3.js"
         }
     ]
 }
