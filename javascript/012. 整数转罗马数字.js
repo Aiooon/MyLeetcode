@@ -53,12 +53,12 @@ date: 2021年3月23日
  * @param {number} num
  * @return {string}
  */
-var intToRoman = function(num) {
+var intToRoman = function (num) {
     let i = 0, res = '';
     const nums = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
     const romans = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"];
     while (i < 13) {
-        while (num >= nums[i]){
+        while (num >= nums[i]) {
             res += romans[i];
             num -= nums[i];
         }
@@ -66,6 +66,46 @@ var intToRoman = function(num) {
     }
     return res;
 };
+
+
+/**
+ * @param {number} num
+ * @return {string}
+ */
+var intToRoman = function (num) {
+    const vals = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+    let val2syb = new Map();
+    val2syb.set(1000, "M");
+    val2syb.set(900, "CM");
+    val2syb.set(500, "D");
+    val2syb.set(400, "CD");
+    val2syb.set(100, "C");
+    val2syb.set(90, "XC");
+    val2syb.set(50, "L");
+    val2syb.set(40, "XL");
+    val2syb.set(10, "X");
+    val2syb.set(9, "IX");
+    val2syb.set(5, "V");
+    val2syb.set(4, "IV");
+    val2syb.set(1, "I");
+    let ans = [];
+    for (const val of vals) {
+        syb = val2syb.get(val);
+        while (num >= val) {
+            num -= val;
+            ans.push(syb);
+        }
+        if (num == 0) {
+            break;
+        }
+    }
+    return ans.join('');
+};
+
+
+
+
+
 
 num = 1994
 console.log(intToRoman(num));
