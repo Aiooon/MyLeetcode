@@ -17,7 +17,7 @@
             "request": "launch",
             "name": "Launch Chrome against localhost",
             // "url": "http://localhost:8080",
-            "program": "${workspaceFolder}/javascript/1190. 反转每对括号间的子串.js"
+            "program": "${workspaceFolder}/javascript/461. 汉明距离.js"
         }
     ]
 }
