@@ -4,8 +4,6 @@
  */
 var permute = function (nums) {
     var res = [];
-    // var check = new Array(nums.length);
-    // check.fill(0);
     backtrack([], nums, res);
     return res;
 };
@@ -24,6 +22,9 @@ var backtrack = function (sol, nums, res) {
         sol.pop();
     }
 }
+
+
+
 
 
 var nums = [1, 2, 3];

@@ -26,7 +26,7 @@ var preOrder1 = function (root) {
     let res = [];
     var dfs = function (root) {
         if (root === null) {
-            return
+            return null;
         }
         res.push(root.val);
         dfs(root.left);
