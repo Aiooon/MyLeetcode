@@ -1,0 +1,18 @@
+{
+	"folders": [],
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"type": "pwa-node",
+				"request": "launch",
+				"name": "Launch Program",
+				"skipFiles": [
+					"<node_internals>/**"
+				],
+				"program": "d:\\Learning\\Code\\MyLeetcode\\javascript\\输出输出.js",
+				"__workspaceFolder": "d:\\Learning\\Code\\MyLeetcode\\javascript"
+			}
+		]
+	}
+}

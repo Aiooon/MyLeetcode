@@ -163,7 +163,7 @@ console.log("迭代：" + layerOrder1(root));
 // 每层一个数组
 var layerOrder2 = function (root) {
     if (root == null) {
-        return 
+        return [];
     }
     let res = [], queue = [];
     queue.push(root);

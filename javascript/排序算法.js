@@ -1,7 +1,8 @@
 let nums = [5, 3, 2, 6, 0, 1, 3, 2, 4];
 console.log('nums:', nums);
 
-// 时间：N^2  空间：1  最好：N  最坏：N^2  In-place  稳定
+
+//冒泡  时间：N^2  空间：1  最好：N  最坏：N^2  In-place  稳定
 function bubbleSort(nums) {
   const n = nums.length;
   let change = false;
@@ -19,7 +20,7 @@ function bubbleSort(nums) {
 // console.log(bubbleSort(nums));
 
 
-// 时间：N^2  空间：1  最好：N^2  最坏：N^2  In-place  不稳定
+//选择 时间：N^2  空间：1  最好：N^2  最坏：N^2  In-place  不稳定
 function selectSort(nums) {
   const n = nums.length;
   for (let i = 0; i < n - 1; i++) {
