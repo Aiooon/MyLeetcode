@@ -51,4 +51,5 @@ var btr_replaceSpace = function(s) {
 内存消耗：37.6 MB, 在所有 JavaScript 提交中击败了 59.87% 的用户 */
 
 let s = 'We are happy.'
-console.log(s.split(' ').join('%20'));
+// console.log(s.split(' ').join('%20'));
+
