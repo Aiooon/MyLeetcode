@@ -1,6 +1,12 @@
 let nums = [5, 3, 2, 6, 0, 1, 3, 2, 4];
 console.log('nums:', nums);
 
+function swap(nums, i, j) {
+  let tmp = nums[i];
+  nums[i] = nums[j];
+  nums[j] = tmp;
+}
+
 
 //冒泡  时间：N^2  空间：1  最好：N  最坏：N^2  In-place  稳定
 function bubbleSort(nums) {
@@ -115,13 +121,55 @@ function partition(nums, left, right) {
   return i;
 }
 
+// console.log('quick sort:', quickSort(nums));
 
-console.log('quick sort:', quickSort(nums));
+
 
 // 时间：NlogN  空间：1  最好：NlogN  最坏：NlogN  In-place  不稳定
 function heapSort(nums) {
-
+  if (nums.length <= 1) {
+    return nums;
+  }
+  for (let i = 0; i < nums.length; i++) {
+    heapinsert(nums, i);
+  }
+  let heapsize = nums.length;
+  swap(nums, 0, --heapsize);
+  while (heapsize > 0) {
+    heapify(nums, 0, heapsize);
+    swap(nums, 0, --heapsize);
+  }
+  return nums;
 }
+
+
+function heapinsert(nums, index) {
+  // 大于父节点就和父节点交换
+  while (nums[index] > nums[Math.floor((index - 1) / 2)]) {
+    swap(nums, index, Math.floor((index - 1) / 2));
+    index = Math.floor((index - 1) / 2);
+  }
+}
+
+// 某个数在index位置，能否往下移动
+function heapify(nums, index, heapsize) {
+  let left = index * 2 + 1;   // 左孩子
+  while (left < heapsize) {
+    let largest = left + 1 < heapsize && nums[left] < nums[left + 1] ? left + 1 : left;
+    largest = nums[index] < nums[largest] ? largest : index;
+    if (largest === index) {
+      break;
+    }
+    swap(nums, index, largest);
+    index = largest;
+    left = index * 2 + 1;
+  }
+}
+
+console.log('heap sort:', heapSort(nums));
+
+
+
 
 
 // 时间：N+k  空间：k  最好：N+k  最坏：N+k  Out-place  稳定
